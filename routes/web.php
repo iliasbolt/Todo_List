@@ -1,5 +1,5 @@
 <?php
-
+use App\Mystuff;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
     return view('BladeTest',[
-        //'name'=>'ilias'
+        'name'=>'ilias',
+        'tasks'=>Mystuff\Task::ReturnTasks(),//here i need to put out the data i have
     ]);
 });
 Route::get('/profile',function (){
