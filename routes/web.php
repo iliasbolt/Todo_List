@@ -22,6 +22,19 @@ Route::get('/', function() {
 Route::get('/profile',function (){
    return " u can type ur infos here";
 });
+Route::get('/{id}',function ($id){
+   $Alltasks = Mystuff\Task::ReturnTasks();
+   foreach ($Alltasks as $task){
+       if($task->id == $id){
+           return view('BladeTest',['result'=>$task]);
+       }
+       else{
+           return view('BladeTest',['Result'=>[]]);
+       }
+
+   }
+
+});
 
 //Route::get('/Test/{xr}',function ($xr){
 //   return "Hello {$xr} OK";
